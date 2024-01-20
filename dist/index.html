@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="../src/style.css">
+    <script src="../dist/main.js" defer></script>
+</head>
+<body>
+    <header><img src="../src/img/TaskTrackerLogo.svg" alt="TaskTracker logo"></header>
+    <div id="mainContainer">
+        <div id="folderContainer">
+            <div id="newInputContainer">
+                <input type="text" name="newName" id="newName" placeholder="Name of folder or task">
+                <button type="button" id="newBtn">+</button>
+            </div>
+            <div id="folderList"></div>
+        </div>
+        <div id="taskContainer">
+            <div id="taskList"></div>
+        </div>
+    </div>
+    <dialog>
+        <div class="dialogContainer">
+            <h2>Add New Folder or Task</h2>
+            <div class="radioContainer">
+                <input type="radio" id="folderRadio" name="newType" value="Folder">
+                    <label for="folderRadio" id="folderLabel" class="newType">Folder</label><br>
+                <input type="radio" id="taskRadio" name="newType" value="Task">
+                    <label for="taskRadio" id="taskLabel" class="newType">Task</label><br>
+            </div>
+            <input type="text" placeholder="Title" id="title" name="title" class="folderReq modalHidden">
+            <input type="text" placeholder="Details" id="details" name="details" class="modalHidden">
+            <input type="date" placeholder="Due Date" id="date" name="date" class="modalHidden">
+            <div id="urgencyContainer" class="modalHidden">
+                <p>Urgency:</p>
+                <div id="urgencyInputs">
+                    <input type="radio" id="urgencyLow" name="urgency" value="Low">
+                        <label for="urgencyLow" class="radioLabel urgencyLabelLow">Low</label>
+                    <input type="radio" id="urgencyMedium" name="urgency" value="Medium">
+                        <label for="urgencyMedium" class="radioLabel urgencyLabelMedium">Medium</label>
+                    <input type="radio" id="urgencyHigh" name="urgency" value="High">
+                        <label for="urgencyHigh" class="radioLabel urgencyLabelHigh">High</label>
+                </div>
+            </div>
+            <button type="button" id="submit" class="folderReq modalHidden">Submit</button>
+        </div>
+    </dialog>
+
+    <div id="detailsModalContainer">
+        <div id="detailsModal">
+            <div class="dialogContainer">
+                <h2>Task Details</h2>
+                <input type="text" placeholder="Title" id="detailsTitle" name="detailsTitle" class="">
+                <input type="text" placeholder="Details" id="detailsDetails" name="detailsDetails" class="">
+                <input type="date" placeholder="Due Date" id="detailsDate" name="detailsDate" class="">
+                <div id="detailsUrgencyContainer" class="">
+                    <p>Urgency:</p>
+                    <div id="urgencyInputs">
+                        <input type="radio" id="detailsUrgencyLow" name="detailsUrgency" value="Low">
+                            <label for="detailsUrgencyLow" class="radioLabel detailsUrgencyLow">Low</label>
+                        <input type="radio" id="detailsUrgencyMedium" name="detailsUrgency" value="Medium">
+                            <label for="detailsUrgencyMedium" class="radioLabel detailsUrgencyMedium">Medium</label>
+                        <input type="radio" id="detailsUrgencyHigh" name="detailsUrgency" value="High">
+                            <label for="detailsUrgencyHigh" class="radioLabel detailsUrgencyHigh">High</label>
+                    </div>
+                </div>
+                <button type="button" id="detailsSubmit" class="">Submit</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

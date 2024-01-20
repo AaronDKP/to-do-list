@@ -1,0 +1,450 @@
+@font-face {
+    font-family: "Roboto";
+    src: url('../src/font/Roboto-Regular.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", "Times New Roman", Verdana, Arial, Helvetica;
+}
+
+body {
+    background-color: #FCE38A;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header{
+    width: 100%;
+    height: 12vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FCE38A;
+    border-bottom: solid 2px #FCE38A;
+    font-weight: 800;
+}
+
+header>img {
+    height: 5em;
+}
+
+#mainContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: #fff;
+    border-top-left-radius: 40px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px;
+}
+
+#folderContainer {
+    flex-grow: 1;
+    max-width: 26vw;
+    margin: 40px;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+#newInputContainer {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+
+    #newName {
+        flex-grow: 1;
+        border: none;
+        border-bottom: solid 2px #FCE38A;
+        outline: none;
+    }
+
+    #newName:active {
+        border-bottom: solid 2px #ffedab;
+    }
+
+    #newBtn {
+        flex-shrink: 0;
+        height: 30px;
+        width: 30px;
+        border: none;
+        background-color: #FCE38A;
+        color: #fff;
+        border-radius: 20px;
+        font-size: 1.4em;
+        font-weight: 800;
+        cursor: pointer;
+    }
+
+    #newBtn:hover {
+        color: #000;
+    }
+
+#folderList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+    .folder {
+        display: flex;
+        width: 100%;
+        height: 1rem;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 10px 0;
+        padding: 0.6rem 0.6rem;
+        border-radius: 8px;
+        -webkit-transition: all .3s;
+        transition: all .3s;
+    }
+
+        .folderLabel {
+            display: inline-block;
+            flex-grow: 1;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .folder:hover {
+            background-color: #FCE38A;
+        }
+
+        .folderActive {
+            background-color: #FCE38A;
+        }
+
+        .childCounter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 20px;
+            width: 20px;
+            border-radius: 20px;
+            background-color: #FCE38A;
+            color: #fff;
+            font-weight: 800;
+        }
+
+#taskContainer {
+    flex-grow: 2;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px;
+    margin: 40px;
+    margin-left: 0;
+    border-radius: 40px;
+}
+
+    #taskList {
+        margin: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .task {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .urgencyBar {
+        flex-grow: 1;
+        border-bottom: 2px solid #F38181;
+    }
+
+    .deleteBtn {
+        height: 16px;
+        width: 16px;
+        background: none;
+        border: none;
+    }
+
+    .deleteImg {
+        height: 1em;
+        width: 1em;
+    }
+
+    .deleteImg:hover {
+        cursor: pointer;
+    }
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+    font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+    display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+  background-color: CanvasText;
+  transform-origin: bottom left;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+.form-control + .form-control {
+  margin-top: 1em;
+}
+
+
+.detailsBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    width: 60px;
+    background: none;
+    border: 1px solid #95E1D3;
+    border-radius: 4px;
+    color: #95E1D3;
+    font-size: 0.6em;
+    font-weight: 900;
+}
+
+.detailsBtn:hover {
+    background-color: #95E1D3;
+    color: #fff;
+    cursor: pointer;
+}
+
+.detailsBtn:active {
+    background-color: #adf0e3;
+}
+
+.date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7em;
+}
+
+dialog, #detailsModal {
+    height: 50vh;
+    min-width: 300px;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #f1f5f9;
+}
+
+#detailsModal {
+    display: block;
+    width: 300px;
+}
+
+.dialogContainer {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    place-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.radioContainer {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+}
+
+.newType {
+    display: inline-block;
+    padding: 0.8em 1em;
+    border-radius: 4px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    background-color: #FCE38A;
+    color: #fff;
+}
+
+.newType:hover, .newTypeActive {
+    color: #000;
+}
+
+.dialogContainer>input {
+    border: none;
+    border-radius: 6px;
+    height: 40px;
+    width: 90%;
+    padding-left: 10px;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.dialogContainer>input:hover {
+    border: solid 2px #cbd5e1;
+}
+
+.checkboxContainer {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2em;
+}
+
+.dialogContainer>button {
+    width: 90%;
+    height: 40px;
+    border: none;
+    border-radius: 6px;
+    background-color: #95E1D3;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.dialogContainer>button:hover {
+    color: #000;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+
+.dialogContainer>button:active {
+    background-color: #a8e3d8;
+}
+
+#urgencyContainer {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+
+#detailsUrgencyContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+
+#urgencyContainer>p {
+    margin-top: 0.4em;
+}
+
+#urgencyInputs {
+    display: flex;
+    justify-content: center;
+}
+
+.radioLabel {
+    display: inline-block;
+    margin: 0 0.4rem 1rem 0.4rem;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+
+#urgencyInputs>input[type="radio"], .radioContainer>input[type="radio"], .folder>input[type="radio"] {
+    position: relative;
+    left: 2.2rem;
+    height: 1px;
+    width: 1px;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+}
+
+.urgencyLabelLow, .detailsUrgencyLow {
+    border: 1px solid #95E1D3;
+    color: #95E1D3;
+}
+
+.urgencyLabelMedium, .detailsUrgencyMedium {
+    border: 1px solid #FCE38A;
+    color: #FCE38A;
+}
+
+.urgencyLabelHigh, .detailsUrgencyHigh {
+    border: 1px solid #F38181;
+    color: #F38181;
+}
+
+.urgencyLabelLow:hover, .detailsUrgencyLow:hover, .lowActive {
+    background-color: #95E1D3;
+    color: #fff;
+}
+
+.urgencyLabelMedium:hover, .detailsUrgencyMedium:hover, .mediumActive {
+    background-color: #FCE38A;
+    color: #fff;
+}
+
+.urgencyLabelHigh:hover, .detailsUrgencyHigh:hover, .highActive { 
+    background-color: #F38181;
+    color: #fff;
+}
+
+#submit {
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#detailsSubmit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#detailsModalContainer {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modalHidden {
+    display: none;
+}
+
